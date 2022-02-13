@@ -8,6 +8,8 @@
 }
 
 .poster img {
+    width: 350px;
+    height: 630px;
     border-radius: 10px;
 }
 

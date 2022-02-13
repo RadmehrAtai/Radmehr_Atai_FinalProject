@@ -9,17 +9,22 @@ import {Link} from "react-router-dom";
 
 const Home = () => {
     const {movies, setSearch} = useContext(MovieContext);
+    var elements = document.getElementsByClassName("movies");
 
     const handleSearch = (e) => {
         setSearch(e.target.value);
     };
 
     const listView = () => {
-
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.width = "50%";
+        }
     }
 
     const gridView = () => {
-
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].style.width = "100%";
+        }
     }
 
     return (
@@ -27,7 +32,8 @@ const Home = () => {
             <div id="btn-container">
                 <button id={"btn"} className={"btn-lg"} onClick={listView}><FontAwesomeIcon icon={faBars}/> List
                 </button>
-                <button id={"btn1"} className={"btn-lg"} onClick={gridView}><FontAwesomeIcon icon={faTh}/> Grid</button>
+                <button id={"btn1"} className={"btn-lg"} onClick={gridView}><FontAwesomeIcon icon={faTh}/> Grid
+                </button>
             </div>
             <Input handleSearch={handleSearch}/>
             <div className={"border"}/>

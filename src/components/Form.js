@@ -1,30 +1,27 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import {MovieContext} from "../context/MovieContext";
+import {useForm} from "react-hook-form";
 import "../styles/Form.css"
 
 const Form = () => {
     const {insertMovie} = useContext(MovieContext);
-    const [newMovie, setNewMovie] = useState({});
+    const {register, handleSubmit, formState: {errors}} = useForm();
 
-    const addNewMovie = (e, field) => {
-        setNewMovie({
-            ...newMovie,
-            [field]: e.target.value,
-        });
-    };
-
-    const submitMovie = (e) => {
-        e.preventDefault();
-        insertMovie(newMovie);
-        alert('Movie is added.')
+    const onSubmit = (data) => {
+        console.log(data);
+        insertMovie(data);
+        alert('Movie is added.');
+        window.location = '/';
     };
 
     return (
-        <form onSubmit={submitMovie}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
                 <label htmlFor="exampleInputTitle1" className={"field-"}>Title</label>
                 <input type="text" className="form-control" id="exampleInputTitle1" name="title"
-                       placeholder="Enter title" onChange={(e) => addNewMovie(e, "title")}/>
+                       placeholder="Enter title"
+                       {...register("title", {required: true})}/>
+                {errors.title && <p className={"field-"}>Please check the Title</p>}
             </div>
             <div>
                 <br/>
@@ -32,7 +29,8 @@ const Form = () => {
             <div className="form-group">
                 <label htmlFor="exampleInputYear1" className={"field-"}>Year</label>
                 <input type="text" className="form-control" id="exampleInputYear1" placeholder="Enter year" name="year"
-                       onChange={(e) => addNewMovie(e, "year")}/>
+                       {...register("year", {required: true, maxLength: 4})}/>
+                {errors.year && <p className={"field-"}>Please check the year</p>}
             </div>
             <div>
                 <br/>
@@ -41,7 +39,9 @@ const Form = () => {
                 <label htmlFor="exampleFormControlTextarea1" className={"field-"}>Description</label>
                 <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
                           placeholder="Enter description"
-                          name="description" onChange={(e) => addNewMovie(e, "desc")}/>
+                          name="description"
+                          {...register("desc", {required: true})}/>
+                {errors.desc && <p className={"field-"}>Please check the description</p>}
             </div>
             <div>
                 <br/>
@@ -49,12 +49,14 @@ const Form = () => {
             <div className="form-group">
                 <label htmlFor="exampleInputImageUrl1" className={"field-"}>Image Url</label>
                 <input type="text" className="form-control" id="exampleInputImageUrl1" name="image"
-                       placeholder="Enter Url" onChange={(e) => addNewMovie(e, "image_url")}/>
+                       placeholder="Enter Url"
+                       {...register("image_url", {required: true})}/>
+                {errors.image_url && <p className={"field-"}>Please check the image_url</p>}
             </div>
             <div>
                 <br/>
             </div>
-            <button type="submit" className="btn-lg btn-primary d-grid gap-2 col-3 mx-auto">Add</button>
+            <button type="submit" className="btn-lg btn-primary d-grid gap-2 col-2 mx-auto">Add</button>
         </form>
     )
 }
