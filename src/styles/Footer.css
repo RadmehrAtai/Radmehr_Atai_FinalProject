@@ -1,0 +1,6 @@
+footer {
+    background-color: red;
+    height: 100px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+}
