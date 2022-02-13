@@ -29,7 +29,7 @@ const Detail = () => {
 
     useEffect(() => {
         showDetail(id);
-    }, [submitUpdate]);
+    }, [bool]);
 
     const handleDelete = (e) => {
         e.preventDefault();
