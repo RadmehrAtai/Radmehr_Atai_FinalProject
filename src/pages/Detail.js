@@ -23,7 +23,7 @@ const Detail = () => {
         e.preventDefault();
         console.log(updatedMovie);
         updateMovie(updatedMovie, id);
-        console.log("Movie is updated.");
+        alert("Movie is updated.");
         setBool(true);
     }
 

@@ -6,6 +6,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import {useEffect} from "react";
+import {DialogContentText} from "@mui/material";
 
 const FormDialog = ({handleUpdate, getInfo, bool}) => {
     const [open, setOpen] = React.useState(false);
@@ -35,6 +36,7 @@ const FormDialog = ({handleUpdate, getInfo, bool}) => {
                         margin="dense"
                         id="title"
                         label="Title"
+                        required={true}
                         type="text"
                         fullWidth
                         variant="standard"
@@ -45,6 +47,7 @@ const FormDialog = ({handleUpdate, getInfo, bool}) => {
                         margin="dense"
                         id="year"
                         label="Year"
+                        required={true}
                         type="text"
                         fullWidth
                         variant="standard"
@@ -56,6 +59,7 @@ const FormDialog = ({handleUpdate, getInfo, bool}) => {
                         id="desc"
                         label="Description"
                         type="text"
+                        required={true}
                         fullWidth
                         variant="standard"
                         onChange={(e) => getInfo(e, "desc")}
