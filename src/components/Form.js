@@ -21,7 +21,7 @@ const Form = () => {
                 <input type="text" className="form-control" id="exampleInputTitle1" name="title"
                        placeholder="Enter title"
                        {...register("title", {required: true})}/>
-                {errors.title && <p className={"field-"}>Please check the Title</p>}
+                {errors.title && <p className={"field-"}>Please check the title</p>}
             </div>
             <div>
                 <br/>
@@ -51,7 +51,7 @@ const Form = () => {
                 <input type="text" className="form-control" id="exampleInputImageUrl1" name="image"
                        placeholder="Enter Url"
                        {...register("image_url", {required: true})}/>
-                {errors.image_url && <p className={"field-"}>Please check the image_url</p>}
+                {errors.image_url && <p className={"field-"}>Please check the imageUrl</p>}
             </div>
             <div>
                 <br/>

@@ -63,6 +63,7 @@ const MovieApp = ({children}) => {
             id: id,
         });
         console.log(upMovie.data);
+        getMovies();
     }
 
     return (
