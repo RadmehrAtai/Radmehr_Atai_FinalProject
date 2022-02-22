@@ -21,7 +21,7 @@ const Form = () => {
                 <input type="text" className="form-control" id="exampleInputTitle1" name="title"
                        placeholder="Enter title"
                        {...register("title", {required: true})}/>
-                {errors.title && <p className={"field-"}>Please check the title</p>}
+                {errors.title && <p className={"field-"}>Please check the title!</p>}
             </div>
             <div>
                 <br/>
@@ -29,8 +29,8 @@ const Form = () => {
             <div className="form-group">
                 <label htmlFor="exampleInputYear1" className={"field-"}>Year</label>
                 <input type="text" className="form-control" id="exampleInputYear1" placeholder="Enter year" name="year"
-                       {...register("year", {required: true, maxLength: 4})}/>
-                {errors.year && <p className={"field-"}>Please check the year</p>}
+                       {...register("year", {required: true, maxLength: 4, pattern:/^([1-9][0-9]*)$/gm})}/>
+                {errors.year && <p className={"field-"}>Please check the year!</p>}
             </div>
             <div>
                 <br/>
@@ -41,7 +41,7 @@ const Form = () => {
                           placeholder="Enter description"
                           name="description"
                           {...register("desc", {required: true})}/>
-                {errors.desc && <p className={"field-"}>Please check the description</p>}
+                {errors.desc && <p className={"field-"}>Please check the description!</p>}
             </div>
             <div>
                 <br/>
@@ -51,7 +51,7 @@ const Form = () => {
                 <input type="text" className="form-control" id="exampleInputImageUrl1" name="image"
                        placeholder="Enter Url"
                        {...register("image_url", {required: true})}/>
-                {errors.image_url && <p className={"field-"}>Please check the imageUrl</p>}
+                {errors.image_url && <p className={"field-"}>Please check the imageUrl!</p>}
             </div>
             <div>
                 <br/>
